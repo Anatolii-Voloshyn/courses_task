@@ -11,8 +11,8 @@ const VideoComponent: React.FC<Props> = ({ video }) => {
   return (
     <>
       <ReactPlayer
-        width="1220px"
-        height="690px"
+        width="1080px"
+        height="540px"
         className="react-player"
         url={video.link}
         controls
