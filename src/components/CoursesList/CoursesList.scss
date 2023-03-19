@@ -1,5 +1,5 @@
 .courses {
   display: grid;
-  grid-template-columns: repeat(5, minmax(260px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(5, minmax(300px, 1fr));
+  gap: 20px;
 }
