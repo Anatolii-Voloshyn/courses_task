@@ -1,46 +1,20 @@
-# Getting Started with Create React App
+У цьому проекті я створив full-stack React додаток використовуючи Туйпскріпт TypeScript. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Кожен компонент створювався в окремому файлі та рендерився безпосередньо до головного файлу додатку. У проекті використовувалися такі бібліотеки: react, react-router-dom, react-player, mui.
 
-## Available Scripts
+Для початку був створений файл Courses.ts в якому я описав усі типи, які зустрічаються в API.
 
-In the project directory, you can run:
+У файлі App.tsx була побудована структура додатку, яка складається з Header'a, та двох сторінок нашого додатку. Уся структура обгорнута в тег "ReactRouter" для зручної навігації.
 
-### `npm start`
+Далі перейшов до створення картки курсів "CoursesCard", які відображаються на головній сторінці.
+Були написані Props для змінних, які використовуватимуться на цій сторінці та створена функція для самої картки. Карта обгорнута у тег "Link", який імпортований з пакету "react-router-dom", та є повністю клікабельною і веде на сторінку курсу.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Наступним кроком створив файл "CoursesList.tsx" куди додав компонинет та виконав його мапінг. Та створив ще один файл "CoursesWithPagination" в який був доданий компонент з усіма картками та додана пагінація. У scss файлах додав стилізацію. На цій стадії готовий компонент був доданий до файлу "App.tsx".
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Далі створив та виконав мапінг нової картки - картки уроку, створив "VideoComponent" куди додав відео за допомогою "ReactPlayer". додав ці два компоненти на сторінку "VideoDetail".
 
-### `npm test`
+Не всі вимоги до тестового завдоння були виконані, оскільки виникали дуже багато проблем. Спочатку не підтягувалися картинки. Після уточнень до тестового зміг підтягнути картнки курсів, але до уроків так і не вийшло. Пробував формувати посилання з різними шляхами, так як в умові були вказані два зовсім різні шляхи ( `previewImageLink + '/' + lesson.order + '.webp'` та `${previewImageLink}/lesson-${order}.webp.`), навіть пробував самостійно підібрати правильне посилання.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Найбільша проблема - використання API. Виконував імпорт за допомогою Axios, використовував авторизацыю за допомогою токена, обыйшов проблему з CORS та і надалі дані не підтягувалися - помилка 404. Дану помилку обійти так і не вдалося.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Вирішив, що краще хоч щось, аніж нічого і тому підтягнув дані з локального файлу JSON, який був вивантажений з Postman.
